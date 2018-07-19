@@ -4,7 +4,7 @@ Learning vue js
 
 
 
-### what is have learned
+### what i have learned
 
 - [x] install vue js  
 - [x] deal with messages
