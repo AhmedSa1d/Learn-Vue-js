@@ -11,6 +11,7 @@ Learning vue js
 - [x] directives (v-if v-else v-show v-pre v-html v-once v-cloak v-text )
 - [x] learning v-bind directive
 - [x] learning v-for directive
+- [x] 2-Way Binding in Vue with V-Model (M V V M)
 
 
 
