@@ -51,6 +51,8 @@
       <div class="col-md-10 col-md-offset-1">
            <div id="app">
             <div class="text-center">
+              <!-- we can make the computed as method like FullName() and change the word computed to methods -->
+              <!-- the deferance is the computed is cashe the result but the methods need to run the function every time to get the result even it's note change and the computed is prefered on this example amagine you have so much code you don't need to run it every time even you did'nt make any change and also if you get a vlue from api so the caching will be very useful -->
               <h1>Hello {{ FullName }}</h1>
             </div>
             <div>
@@ -61,18 +63,26 @@
             </div>
             <hr>
             
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>First Name:</label>
-                <input type="text" v-model="FirstName" class="form-control" />
+              <div class="col-md-12">
+                <label>Full Name :</label>
+                <input type="text" v-model="FullName"  class="form-control">
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Last Name:</label>
-                <input type="text" v-model="LastName" class="form-control" />
+            
+            
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>First Name:</label>
+                  <input type="text" v-model="FirstName" class="form-control" />
+                </div>
               </div>
-            </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Last Name:</label>
+                  <input type="text" v-model="LastName" class="form-control" />
+                </div>
+              </div>  
+            
+            
                     
           </div>
       </div>
@@ -97,10 +107,20 @@
           LastName: "",
         },
         computed: {
-          FullName: function(){
+          FullName: {
+            // getter function for fullname
+            get: function(){
             return this.FirstName + " " + this.LastName;
-          }
+            },
+
+            set: function(value){
+              var name = value.split(' ');
+              this.FirstName = name[0];
+              this.LastName = name[name.length-1];
+            },
+          },
         }
+
 
 
 

@@ -14,7 +14,8 @@ Learning vue js
 - [x] 2-Way Binding in Vue with V-Model (M V V M)
 - [x] learning Event Handling in Vue Js
 - [x] learning Computed Property build two example
-
+- [x] Getter & Setter Computed Properties
+- [x] Now it's time for real world project on vue js
 
 
 
