@@ -48,25 +48,28 @@
       </div>
     </div>
     <div row>
-      <div class="col-md-8 col-md-offset-2">
-           <div id="app" class="text-center">
-            <p>
-              <!-- clean the url from https:// and the slash / at the end -->
-              Visit: <a :href="URL"> {{cleanURL}} </a>
-
-            </p>
-            <!-- m v v m ( model view view model) -->
-            <input type="text" v-model="URL" class="form-control" />
-            <button @click="HumanizeURL" class="btn btn-primary">Clean The URL </button>
-            <hr>
-            <h1>Count: {{count}} </h1>
-            <button v-on:click="countUP" class="btn btn-primary">Count Up </button>
-            <button v-on:click="countDown" class="btn btn-primary">Count Down </button>
-             <hr>
-            <h1>Count: {{count}} </h1>
-            <!-- the @ sign is replace v-on: -->
-            <button @click="countUP" class="btn btn-primary">Count Up </button>
-            <button @click="countDown" class="btn btn-primary">Count Down </button>
+      <div class="col-md-10 col-md-offset-1">
+           <div id="app">
+            <div class="text-center">
+              <h1>You are a <strong>{{Level}}</strong> </h1>
+              <hr>
+              <h3>Current XP: {{XP}} </h3>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <button class="btn btn-success btn-block" @click="Add"><span class="glyphicon glyphicon-collapse-up"></span> Add XP </button>
+                     </div> 
+                  </div>
+                  <div class="col-md-6">
+                    <button class="btn btn-success btn-block" @click="Decrease"><span class="glyphicon glyphicon-collapse-down"></span> Decrease XP </button>
+                  </div>
+                </div>
+              </div>
+            </div>
                     
           </div>
       </div>
@@ -87,25 +90,30 @@
 
         el: '#app',
         data: {
-          message: 'hello vue world',
-          URL: "",
-          cleanURL: "", 
-          count: 0,
+          XP: 10,
         },
-        methods: {
-          HumanizeURL: function(){
-            this.cleanURL = this.URL.replace(/^https?:\/\//,'').replace(/\/$/,'');
+        methods:{
+          Add : function(){
+            this.XP +=10;
           },
-
-          countUP: function(){
-            this.count += 1;
+          Decrease : function(){
+            this.XP -=10;
           },
-          countDown: function(){
-            this.count -= 1;
-          }
+        },
+        computed: {
+          Level: function(){
+             if (this.XP >=200) {
+              return "pro";
+             }else if(this.XP >=100){
+              return "intermediate";
+             }else if(this.XP >=0){
+              return "Beginner";
+             }else{
+              return "Banned";
+             }
 
-
-        }
+          },
+        },
 
 
 
