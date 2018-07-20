@@ -12,6 +12,7 @@ Learning vue js
 - [x] learning v-bind directive
 - [x] learning v-for directive
 - [x] 2-Way Binding in Vue with V-Model (M V V M)
+- [x] learning Event Handling in Vue Js
 
 
 
